@@ -1,0 +1,16 @@
+[Unit]
+Description=Hello World Python Application
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/opt/python-app
+ExecStart=/opt/python-app/venv/bin/python3 /opt/python-app/app.py
+Restart=always
+RestartSec=5
+Environment=PATH=/opt/python-app/venv/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target
